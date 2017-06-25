@@ -31,6 +31,7 @@ To create a standalone executable, see [Electron's distribution documentation](h
 * Click on the screen to add an ant at that location
 * Press `s` to stop/start the progression of time
 * Press `r` to reset (i.e. remove all ants)
+* Press `t` to advance time by a single tick (this will also "stop time")
 * Press `q` to quit
 
 ## About Langton's Ant

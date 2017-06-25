@@ -41,7 +41,12 @@ function LangtonsAntFarm(sideLength) {
             }
         } else if (ev.key === 'r') {
             this.reset();
-        }
+        } else if (ev.key === 't') {
+		if (this.isRunning) {
+			this.stop();
+		}
+		this.tick();
+	}
     }.bind(this));
 
     this.tickTimeInMillis = 50;
@@ -50,11 +55,14 @@ function LangtonsAntFarm(sideLength) {
 }
 
 LangtonsAntFarm.prototype.start = function() {
-    var antFarmPresenter = this.antFarmPresenter;
     this.isRunning = true;
     this.interval = setInterval(function() {
-        antFarmPresenter.tick();
-    }, this.tickTimeInMillis);
+        this.tick();
+    }.bind(this), this.tickTimeInMillis);
+};
+
+LangtonsAntFarm.prototype.tick = function() {
+        this.antFarmPresenter.tick();
 };
 
 LangtonsAntFarm.prototype.stop = function() {
