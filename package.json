@@ -1,0 +1,23 @@
+{
+  "name": "antfarm",
+  "version": "1.0.0",
+  "description": "Langton's Ant",
+  "main": "main.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "electron ."
+  },
+  "keywords": [
+    "langton",
+    "ant",
+    "farm"
+  ],
+  "author": "David Jackson",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "jasmine": "^2.6.0"
+  },
+  "dependencies": {
+    "electron": "^1.6.11"
+  }
+}
