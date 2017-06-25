@@ -29,7 +29,9 @@ AntFarmPresenter.prototype.drawAnts = function() {
 AntFarmPresenter.prototype.handleClick = function(ev) {
 	var x = Math.floor(ev.offsetX / this.sideLength);
 	var y = Math.floor(ev.offsetY / this.sideLength);
-	this.antFarm.createAntAtPosition(x, y);
+    if (x >= 0 && y >= 0) {
+        this.antFarm.createAntAtPosition(x, y);
+    }
 };
 
 AntFarmPresenter.prototype.tick = function() {

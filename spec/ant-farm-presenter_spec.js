@@ -45,6 +45,26 @@ describe('AntFarmPresenter', function() {
 			.toHaveBeenCalledWith(3, 4);
 	});
 
+    it('ignores negative x offset', function() {
+		spyOn(antFarm, 'createAntAtPosition');
+		var fakeEvent = {
+			offsetX: -1,
+			offsetY: 49
+		};
+		presenter.handleClick(fakeEvent);
+		expect(antFarm.createAntAtPosition).not.toHaveBeenCalled();
+    });
+
+    it('ignores negative y offset', function() {
+		spyOn(antFarm, 'createAntAtPosition');
+		var fakeEvent = {
+			offsetX: 34,
+			offsetY: -1
+		};
+		presenter.handleClick(fakeEvent);
+		expect(antFarm.createAntAtPosition).not.toHaveBeenCalled();
+    });
+
 	it('can tick time forward', function() {
 		var ant = antFarm.createAntAtPosition(3, 4);
 		spyOn(ant, 'step');

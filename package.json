@@ -1,6 +1,6 @@
 {
   "name": "antfarm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Langton's Ant",
   "main": "main.js",
   "scripts": {
