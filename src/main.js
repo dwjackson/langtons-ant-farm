@@ -9,4 +9,4 @@
  */
 
 var LangtonsAntFarm = require('./src/langtons-ant-farm');
-LangtonsAntFarm.main();
+LangtonsAntFarm.main(5);

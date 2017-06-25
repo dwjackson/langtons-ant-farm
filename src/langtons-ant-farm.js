@@ -13,10 +13,10 @@ var AntFarm = require('./ant-farm');
 var AntFarmPresenter = require('./ant-farm-presenter');
 var Square = require('./square');
 
-function LangtonsAntFarm() {
+function LangtonsAntFarm(sideLength) {
     var canvasElement = document.getElementById('canvas');
     this.canvas = new Canvas(canvasElement);
-    var squareSideLength = 10;
+    var squareSideLength = sideLength;
     this.width = canvasElement.width / squareSideLength;
     this.height = canvasElement.height / squareSideLength;
     this.antFarm = new AntFarm(this.width, this.height);
@@ -73,8 +73,8 @@ LangtonsAntFarm.prototype.reset = function() {
     }
 };
 
-function main() {
-    var langtonsAntFarm = new LangtonsAntFarm();
+function main(squareSideLength) {
+    var langtonsAntFarm = new LangtonsAntFarm(squareSideLength);
     langtonsAntFarm.start();
 }
 
