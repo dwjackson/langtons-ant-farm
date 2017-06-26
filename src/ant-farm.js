@@ -50,7 +50,7 @@ AntFarm.prototype.step = function() {
         if (ant.position.x < 0
             || ant.position.y < 0
             || ant.position.x >= this.plane.width
-            || ant.position.y >= this.plane.width) {
+            || ant.position.y >= this.plane.height) {
             antsToRemove.push(ant);
         }
 	}, this);
