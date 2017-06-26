@@ -11,7 +11,6 @@
 var electron = require('electron');
 var app = electron.app;
 var BrowserWindow = electron.BrowserWindow;
-var globalShortcut = electron.globalShortcut;
 var path = require('path');
 var url = require('url');
 
@@ -23,10 +22,6 @@ function createWindow() {
 		height: 600,
 		resizable: false,
 		frame: false
-	});
-
-	globalShortcut.register('Q', function() {
-		win.close();
 	});
 
 	win.loadURL(url.format({
