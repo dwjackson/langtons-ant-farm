@@ -33,6 +33,8 @@ To create a standalone executable, see [Electron's distribution documentation](h
 * Press `r` to reset (i.e. remove all ants)
 * Press `s` to stop/start the progression of time
 * Press `t` to advance time by a single tick (this will also "stop time")
+* Press `+` to speed up the time between ticks
+* Press `-` to slow down the time between ticks
 
 ## About Langton's Ant
 
