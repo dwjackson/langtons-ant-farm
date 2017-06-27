@@ -32,6 +32,12 @@ function LangtonsAntFarm(sideLength) {
         antFarmPresenter.drawAnts();
     });
 
+    this.minTickTimeInMillis = 10;
+    this.maxTickTimeInMillis = 2000;
+    this.tickTimeInMillis = 50;
+    this.interval = null;
+    this.isRunning = false;
+
     window.addEventListener('keypress', function(ev) {
         if (ev.key === 's') {
             if (this.isRunning) {
@@ -46,12 +52,12 @@ function LangtonsAntFarm(sideLength) {
 			this.stop();
 		}
 		this.tick();
+	} else if (ev.key === '+') {
+		this.faster();
+	} else if (ev.key === '-') {
+		this.slower();
 	}
     }.bind(this));
-
-    this.tickTimeInMillis = 50;
-    this.interval = null;
-    this.isRunning = false;
 }
 
 LangtonsAntFarm.prototype.start = function() {
@@ -69,6 +75,24 @@ LangtonsAntFarm.prototype.stop = function() {
     clearInterval(this.interval);
     this.interval = null;
     this.isRunning = false;
+};
+
+LangtonsAntFarm.prototype.faster = function() {
+	this.stop();
+	this.tickTimeInMillis /= 2;
+	if (this.tickTimeInMillis < this.minTickTimeInMillis) {
+		this.tickTimeInMillis = this.minTickTimeInMillis;
+	}
+	this.start();
+};
+
+LangtonsAntFarm.prototype.slower = function() {
+	this.stop();
+	this.tickTimeInMillis *= 2;
+	if (this.tickTimeInMillis > this.maxTickTimeInMillis) {
+		this.tickTimeInMillis = this.maxTickTimeInMillis;
+	}
+	this.start();
 };
 
 LangtonsAntFarm.prototype.reset = function() {
