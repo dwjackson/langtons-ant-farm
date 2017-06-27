@@ -10,9 +10,10 @@
 
 function AntFarmPresenter(antFarm, canvas, sideLength) {
 	this.antFarm = antFarm;
-    this.antFarm.registerObserver(this);
+	this.antFarm.registerObserver(this);
 	this.canvas = canvas;
 	this.sideLength = sideLength;
+	this.clickMode = AntFarmPresenter.ClickMode.NewAnt;
 }
 
 AntFarmPresenter.prototype.drawAnts = function() {
@@ -29,9 +30,14 @@ AntFarmPresenter.prototype.drawAnts = function() {
 AntFarmPresenter.prototype.handleClick = function(ev) {
 	var x = Math.floor(ev.offsetX / this.sideLength);
 	var y = Math.floor(ev.offsetY / this.sideLength);
-    if (x >= 0 && y >= 0) {
-        this.antFarm.createAntAtPosition(x, y);
-    }
+	if (this.clickMode === AntFarmPresenter.ClickMode.NewAnt) {
+		if (x >= 0 && y >= 0) {
+			this.antFarm.createAntAtPosition(x, y);
+		}
+	} else {
+		var square = this.antFarm.plane.getSquare(x, y);
+		square.invertColour();
+	}
 };
 
 AntFarmPresenter.prototype.tick = function() {
@@ -48,6 +54,18 @@ AntFarmPresenter.prototype.drawSquare = function(square) {
 
 AntFarmPresenter.prototype.notify = function(square) {
     this.drawSquare(square);
+};
+
+AntFarmPresenter.prototype.setClickMode = function(clickMode) {
+	if (!(clickMode in AntFarmPresenter.ClickMode)) {
+		throw new Error('Invalid click mode');
+	}
+	this.clickMode = clickMode;
+};
+
+AntFarmPresenter.ClickMode = {
+	NewAnt: 'NewAnt',
+	InvertSquare: 'InvertSquare'
 };
 
 module.exports = AntFarmPresenter;

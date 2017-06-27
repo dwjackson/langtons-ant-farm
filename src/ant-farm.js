@@ -47,16 +47,16 @@ AntFarm.prototype.step = function() {
     var antsToRemove = [];
 	this.ants.forEach(function(ant) {
 		ant.step();
-        if (ant.position.x < 0
-            || ant.position.y < 0
-            || ant.position.x >= this.plane.width
-            || ant.position.y >= this.plane.height) {
-            antsToRemove.push(ant);
-        }
+		if (ant.position.x < 0
+		    || ant.position.y < 0
+		    || ant.position.x >= this.plane.width
+		    || ant.position.y >= this.plane.height) {
+			antsToRemove.push(ant);
+		}
 	}, this);
-    antsToRemove.forEach(function(ant) {
-        this.removeAnt(ant);
-    }, this);
+	antsToRemove.forEach(function(ant) {
+		this.removeAnt(ant);
+	}, this);
 };
 
 AntFarm.prototype.forEachAnt = function(callback, thisArg) {
@@ -64,7 +64,7 @@ AntFarm.prototype.forEachAnt = function(callback, thisArg) {
 };
 
 AntFarm.prototype.notify = function(obj) {
-    this.notifyObservers(obj);
+	this.notifyObservers(obj);
 };
 
 AntFarm.prototype.removeAllAnts = function() {

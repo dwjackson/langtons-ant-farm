@@ -10,6 +10,7 @@
 
 var AntFarmPresenter = require('../src/ant-farm-presenter');
 var AntFarm = require('../src/ant-farm');
+var Square = require('../src/square');
 
 describe('AntFarmPresenter', function() {
 	var antFarm;
@@ -45,7 +46,7 @@ describe('AntFarmPresenter', function() {
 			.toHaveBeenCalledWith(3, 4);
 	});
 
-    it('ignores negative x offset', function() {
+	it('ignores negative x offset', function() {
 		spyOn(antFarm, 'createAntAtPosition');
 		var fakeEvent = {
 			offsetX: -1,
@@ -53,9 +54,9 @@ describe('AntFarmPresenter', function() {
 		};
 		presenter.handleClick(fakeEvent);
 		expect(antFarm.createAntAtPosition).not.toHaveBeenCalled();
-    });
+	});
 
-    it('ignores negative y offset', function() {
+	it('ignores negative y offset', function() {
 		spyOn(antFarm, 'createAntAtPosition');
 		var fakeEvent = {
 			offsetX: 34,
@@ -63,7 +64,7 @@ describe('AntFarmPresenter', function() {
 		};
 		presenter.handleClick(fakeEvent);
 		expect(antFarm.createAntAtPosition).not.toHaveBeenCalled();
-    });
+	});
 
 	it('can tick time forward', function() {
 		var ant = antFarm.createAntAtPosition(3, 4);
@@ -87,12 +88,23 @@ describe('AntFarmPresenter', function() {
 		);
 	});
 
-    it('observes changes in the ant farm', function() {
-        spyOn(presenter, 'notify').and.callThrough();
-        spyOn(presenter, 'drawSquare');
-        var square = antFarm.plane.getSquare(3, 4);
-        square.invertColour();
-        expect(presenter.notify).toHaveBeenCalled();
-        expect(presenter.drawSquare).toHaveBeenCalled();
-    });
+	it('observes changes in the ant farm', function() {
+		spyOn(presenter, 'notify').and.callThrough();
+		spyOn(presenter, 'drawSquare');
+		var square = antFarm.plane.getSquare(3, 4);
+		square.invertColour();
+		expect(presenter.notify).toHaveBeenCalled();
+		expect(presenter.drawSquare).toHaveBeenCalled();
+	});
+
+	it('can switch clicking to flip square colour', function() {
+		presenter.setClickMode(AntFarmPresenter.ClickMode.InvertSquare);
+		var fakeEvent = {
+			offsetX: 34,
+			offsetY: 49
+		};
+		presenter.handleClick(fakeEvent);
+		var square = antFarm.plane.getSquare(3, 4);
+		expect(square.colour).toBe(Square.Colour.Black);
+	});
 });

@@ -29,6 +29,8 @@ To create a standalone executable, see [Electron's distribution documentation](h
 ## Usage
 
 * Click on the screen to add an ant at that location
+* Press `1` to make each click create a new ant (this is the default)
+* Press `2` to make each click invert the colour of the clicked square
 * Press `q` to quit
 * Press `r` to reset (i.e. remove all ants)
 * Press `s` to stop/start the progression of time
