@@ -16,8 +16,8 @@
   "author": "David Jackson",
   "license": "MPL-2.0",
   "devDependencies": {
-    "asar": "^0.13.0",
-    "jasmine": "^2.6.0",
-    "electron": "^1.6.11"
+    "asar": "^0.13.1",
+    "electron": "^1.8.8",
+    "jasmine": "^2.99.0"
   }
 }
