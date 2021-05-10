@@ -5,10 +5,10 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Compass = require('../src/compass');
+import * as Compass from '../src/compass.mjs';
 
 describe('Compass', function() {
 	var compass;
@@ -60,10 +60,5 @@ describe('Compass', function() {
 				expect(dir).toBe(cardinalDirection);
 			});
 		});
-	});
-
-	it('is immutable', function() {
-		compass.north = null;
-		expect(compass.north).not.toBe(null);
 	});
 });

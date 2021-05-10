@@ -5,7 +5,7 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
 function Direction(name) {
@@ -37,8 +37,8 @@ Compass.prototype.nextCounterclockwise = function(dir) {
 	return this.directions[index];
 };
 
-var _instance = null;
-exports.instance = function() {
+let _instance = null;
+export function instance() {
 	if (_instance === null) {
 		_instance = new Compass();
 	}
