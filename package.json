@@ -17,7 +17,7 @@
   "license": "MPL-2.0",
   "devDependencies": {
     "asar": "^0.13.1",
-    "electron": "^9.4.0",
-    "jasmine": "^2.99.0"
+    "electron": "^12.0.7",
+    "jasmine": "^3.7.0"
   }
 }

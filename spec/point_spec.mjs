@@ -5,13 +5,13 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Point = require('../src/point');
+import Point from '../src/point.mjs';
 
 describe('Point', function() {
-	var point;
+	let point;
 
 	beforeEach(function() {
 		point = new Point(3, 4);
@@ -20,10 +20,5 @@ describe('Point', function() {
 	it('has an x and y coordinate', function() {
 		expect(point.x).toBe(3);
 		expect(point.y).toBe(4);
-	});
-
-	it('is immutable', function() {
-		point.x = 999;
-		expect(point.x).toBe(3);
 	});
 });

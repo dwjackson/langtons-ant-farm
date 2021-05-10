@@ -5,7 +5,7 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
 function Point(x, y) {
@@ -14,4 +14,4 @@ function Point(x, y) {
 	Object.freeze(this);
 }
 
-module.exports = Point;
+export default Point;
