@@ -5,10 +5,10 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Observable = require('../src/observable');
+import Observable from '../src/observable.mjs';
 
 describe('Observable', function() {
 	var observable, observer;

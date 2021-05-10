@@ -33,4 +33,4 @@ Observable.prototype.unregisterObserver = function(observer) {
 	return null;
 };
 
-module.exports = Observable;
+export default Observable;
