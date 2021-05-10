@@ -5,10 +5,10 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Square = require('./square');
+import Square from './square.mjs';
 
 function Plane(width, height) {
 	this.width = width;
@@ -40,4 +40,4 @@ Plane.prototype.forEachSquare = function(callback, thisArg) {
     }
 };
 
-module.exports = Plane;
+export default Plane;

@@ -5,11 +5,11 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Plane = require('../src/plane');
-var Square = require('../src/square');
+import Plane from '../src/plane.mjs';
+import Square from '../src/square.mjs';
 
 describe('Plane', function() {
 	var plane, width, height;
@@ -75,9 +75,9 @@ describe('Plane', function() {
 			expect(observer.notify).toHaveBeenCalledWith(square);
 		});
 
-        it('can have its colour set', function() {
-            square.setColour(Square.Colour.Black);
-            expect(square.colour).toBe(Square.Colour.Black);
-        });
+		it('can have its colour set', function() {
+			square.setColour(Square.Colour.Black);
+			expect(square.colour).toBe(Square.Colour.Black);
+		});
 	});
 });

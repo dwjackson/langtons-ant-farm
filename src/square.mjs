@@ -5,11 +5,11 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Point = require('./point');
-var Observable = require('./observable');
+import Point from './point.mjs';
+import Observable from './observable.mjs';
 
 function Colour(name) {
 	this.name = name;
@@ -47,4 +47,4 @@ Square.Colour = {
 	Black: new Colour('black')
 };
 
-module.exports = Square;
+export default Square;
