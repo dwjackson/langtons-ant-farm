@@ -5,14 +5,14 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Plane = require('./plane');
-var Ant = require('./ant');
-var Compass = require('./compass');
-var Point = require('./point');
-var Observable = require('./observable');
+import Plane from './plane.mjs';
+import Ant from './ant.mjs';
+import * as Compass from './compass.mjs';
+import Point from './point.mjs';
+import Observable from './observable.mjs';
 
 function AntFarm(width, height) {
     Observable.call(this);
@@ -71,4 +71,4 @@ AntFarm.prototype.removeAllAnts = function() {
     this.ants = [];
 };
 
-module.exports = AntFarm;
+export default AntFarm;

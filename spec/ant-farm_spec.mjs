@@ -5,10 +5,10 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var AntFarm = require('../src/ant-farm');
+import AntFarm from '../src/ant-farm.mjs';
 
 describe('AntFarm', function() {
 	var antFarm;
