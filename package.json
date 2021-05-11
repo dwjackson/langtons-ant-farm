@@ -5,8 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "jasmine",
-    "start": "electron .",
-    "archive": "asar pack . antfarm.asar --unpack-dir node_modules"
+    "start": "electron ."
   },
   "keywords": [
     "langton",
@@ -16,7 +15,6 @@
   "author": "David Jackson",
   "license": "MPL-2.0",
   "devDependencies": {
-    "asar": "^0.13.1",
     "electron": "^12.0.7",
     "jasmine": "^3.7.0"
   }
