@@ -5,23 +5,23 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Ant = require('../src/ant');
-var Compass = require('../src/compass');
-var Point = require('../src/point');
-var Plane = require('../src/plane');
-var Square = require('../src/square');
+import Ant from '../src/ant.mjs';
+import * as Compass from '../src/compass.mjs';
+import Point from '../src/point.mjs';
+import Plane from '../src/plane.mjs';
+import Square from '../src/square.mjs';
 
 describe('Ant', function() {
-	var compass;
-	var ant;
-	var initalPosition;
+	let compass;
+	let ant;
+	let initialPosition;
 
 	beforeEach(function() {
 		compass = Compass.instance();
-		var plane = new Plane(40, 30);
+		let plane = new Plane(40, 30);
 		initialPosition = new Point(0, 0);
 		ant = new Ant(compass, plane, initialPosition);
 	});

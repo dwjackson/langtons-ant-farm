@@ -5,11 +5,11 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Point = require('./point');
-var Square = require('./square');
+import Point from './point.mjs';
+import Square from './square.mjs';
 
 function Ant(compass, plane, point) {
 	this.compass = compass;
@@ -52,4 +52,4 @@ Ant.prototype.step = function() {
 	this.moveForward();
 };
 
-module.exports = Ant;
+export default Ant;
