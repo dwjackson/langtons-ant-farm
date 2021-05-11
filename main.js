@@ -8,7 +8,7 @@
  * Copyright (c) 2017-2021 David Jackson
  */
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 function createWindow() {
@@ -24,6 +24,10 @@ function createWindow() {
 	win.setMenu(null);
 
 	win.loadFile('index.html');
+
+	ipcMain.handle('quit', () => {
+		win.close();
+	});
 }
 
 app.whenReady().then(() => {
