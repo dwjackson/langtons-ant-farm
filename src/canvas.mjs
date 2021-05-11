@@ -5,7 +5,7 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
 function Canvas(canvasElem) {
@@ -21,4 +21,4 @@ Canvas.prototype.rectangle = function(x, y, width, height, colour) {
 	this.context.fillRect(x, y, width, height);
 };
 
-module.exports = Canvas;
+export default Canvas;

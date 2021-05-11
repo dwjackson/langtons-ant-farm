@@ -5,13 +5,13 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var Canvas = require('./canvas');
-var AntFarm = require('./ant-farm');
-var AntFarmPresenter = require('./ant-farm-presenter');
-var Square = require('./square');
+import Canvas from './canvas.mjs';
+import AntFarm from './ant-farm.mjs';
+import AntFarmPresenter from './ant-farm-presenter.mjs';
+import Square from './square.mjs';
 
 function LangtonsAntFarm(sideLength) {
 	var canvasElement = document.getElementById('canvas');
@@ -122,4 +122,4 @@ function main(squareSideLength) {
 	langtonsAntFarm.start();
 }
 
-exports.main = main;
+export { main };

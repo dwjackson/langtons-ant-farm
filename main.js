@@ -5,46 +5,39 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var electron = require('electron');
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
-var path = require('path');
-var url = require('url');
-
-var win;
+const { app, BrowserWindow } = require('electron');
+const path = require('path');
 
 function createWindow() {
-	win = new BrowserWindow({
+	const win = new BrowserWindow({
 		width: 800,
 		height: 600,
 		resizable: false,
-		frame: false
+		webPreferences: {
+			preload: path.join(__dirname, 'preload.js')
+		}
 	});
 
-	win.loadURL(url.format({
-		pathname: path.join(__dirname, 'index.html'),
-		protocol: 'file:',
-		slashes: true
-	}));
+	win.setMenu(null);
 
-	win.on('closed', function() {
-		win = null;
-	});
+	win.loadFile('index.html');
 }
 
-app.on('ready', createWindow);
+app.whenReady().then(() => {
+	createWindow();
+
+	app.on('activate', () => {
+		if (BrowserWindow.getAllWindows().length === null) {
+			createWindow();
+		}
+	});
+});
 
 app.on('window-all-closed', function() {
 	if (process.paltform !== 'darwin') {
 		app.quit();
-	}
-});
-
-app.on('activate', function() {
-	if (win === null) {
-		createWindow();
 	}
 });

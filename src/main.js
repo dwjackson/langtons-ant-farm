@@ -5,17 +5,8 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var remote = require('electron').remote;
-
-document.addEventListener('keyup', function(ev) {
-    if (ev.key === 'q') {
-        var win = remote.getCurrentWindow();
-        win.close();
-    }
-});
-
-var LangtonsAntFarm = require('./src/langtons-ant-farm');
-LangtonsAntFarm.main(5);
+import { main } from './langtons-ant-farm.js';
+main(5);
