@@ -5,7 +5,7 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
 function AntFarmPresenter(antFarm, canvas, sideLength) {
@@ -68,4 +68,4 @@ AntFarmPresenter.ClickMode = {
 	InvertSquare: 'InvertSquare'
 };
 
-module.exports = AntFarmPresenter;
+export default AntFarmPresenter;

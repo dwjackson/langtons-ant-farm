@@ -5,12 +5,12 @@
  */
 
 /*
- * Copyright (c) 2017 David Jackson
+ * Copyright (c) 2017-2021 David Jackson
  */
 
-var AntFarmPresenter = require('../src/ant-farm-presenter');
-var AntFarm = require('../src/ant-farm');
-var Square = require('../src/square');
+import AntFarmPresenter from '../src/ant-farm-presenter.mjs';
+import AntFarm from '../src/ant-farm.mjs';
+import Square from '../src/square.mjs';
 
 describe('AntFarmPresenter', function() {
 	var antFarm;
