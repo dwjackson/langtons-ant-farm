@@ -15,7 +15,7 @@
   "author": "David Jackson",
   "license": "MPL-2.0",
   "devDependencies": {
-    "electron": "^12.0.7",
+    "electron": "^12.1.0",
     "jasmine": "^3.7.0"
   }
 }
